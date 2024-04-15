@@ -20,6 +20,7 @@
             styleButton="orange"
             class="coll"
             label="Консультація"
+            :isDisabled="disabledButton"
           />
           <BaseButton size="big" class="portfolio" label="Приклади робіт" />
         </div>
@@ -30,12 +31,19 @@
 
 <script>
 import BaseButton from "./BaseButton.vue";
+import { mapState } from "vuex";
 
 export default {
   components: { BaseButton },
   name: "TheAboutUs",
   comments: {
     BaseButton,
+  },
+
+  computed: {
+    ...mapState({
+      disabledButton: (state) => state.modal.isOpened,
+    }),
   },
 
   methods: {

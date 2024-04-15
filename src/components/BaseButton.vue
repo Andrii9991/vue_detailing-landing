@@ -1,5 +1,5 @@
 <template>
-  <button :class="['base-button', styleButton, size]">
+  <button :class="['base-button', styleButton, size]" :disabled="isDisabled">
     {{ label }}
   </button>
 </template>
@@ -11,6 +11,10 @@ export default {
     label: {
       required: false,
       default: "Кнопка",
+    },
+    isDisabled: {
+      require: false,
+      type: Boolean,
     },
     styleButton: {
       default: "",
@@ -35,6 +39,12 @@ export default {
   &:hover {
     background-color: $orange;
     cursor: pointer;
+  }
+
+  &:disabled {
+    background-color: $grey-lite;
+    box-shadow: inset 0 0 0 2px $grey-lite;
+    color: $white;
   }
 }
 
