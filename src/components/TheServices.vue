@@ -10,6 +10,7 @@
         >
           <i class="pi pi-wrench" style="font-size: 2rem"> </i>
           <h2 class="item-title">{{ service.title }}</h2>
+          <img :src="service.images" alt="" />
           <p class="item-text">
             <strong>{{ service.description }}</strong>
           </p>

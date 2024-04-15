@@ -11,6 +11,7 @@
     <TheAboutUs class="test" />
     <TheServices />
     <TheFooter />
+    <informationPopUp :isPopUpVisible="popUpVisible" />
   </div>
 </template>
 
@@ -19,6 +20,7 @@ import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
 import TheAboutUs from "@/components/TheAboutUs.vue";
 import BaseModal from "@/components/BaseModal.vue";
+import informationPopUp from "../components/informationPopUp.vue";
 import { mapState } from "vuex";
 import TheServices from "@/components/TheServices.vue";
 export default {
@@ -29,9 +31,12 @@ export default {
     BaseModal,
     TheFooter,
     TheServices,
+    informationPopUp,
   },
   data() {
-    return {};
+    return {
+      popUpVisible: true,
+    };
   },
 
   computed: {

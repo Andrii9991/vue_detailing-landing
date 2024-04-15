@@ -1,7 +1,7 @@
 <template>
   <div class="base-modal">
     <div class="base-modal__container">
-      <h1 class="modal-title">Залиште заявку</h1>
+      <h1 class="modal-title">Залишіть заявку</h1>
       <h3 class="modal-subtitle">Менеджер зв'яжеться з вами найблищим часом</h3>
 
       <form class="modal-form" @submit.prevent="onSubmit">
@@ -12,7 +12,13 @@
         <fieldset class="input-border">
           <label for="phone">Номер телефону</label>
 
-          <input type="phone" placeholder="+380" v-model="phone" />
+          <input
+            type="phone"
+            placeholder="+380"
+            v-model="phone"
+            v-maska
+            data-maska="+380-(##)-##-##-###"
+          />
         </fieldset>
 
         <BaseButton
@@ -20,6 +26,7 @@
           label="Залишити заявку"
           size="big"
           styleButton="margin"
+          :isDisabled="disabledButton"
         />
       </form>
     </div>
@@ -28,8 +35,10 @@
 
 <script>
 import BaseButton from "./BaseButton.vue";
+import { vMaska } from "maska";
 import axios from "axios";
 export default {
+  directives: { maska: vMaska },
   name: "BaseModal",
   components: {
     BaseButton,
@@ -42,48 +51,41 @@ export default {
     };
   },
 
-  // methods: {
-  //   onSubmit() {
+  computed: {
+    disabledButton() {
+      return this.name === "" || this.phone === "" || this.phone.length < 19;
+    },
+  },
 
-  //     const token = "7098972697:AAEVGCTgXpqmBXFkIBZS64JEw1e776WsW5o";
-  //     const CHAT_ID = " -1002133912380";
-  //     const URI_API = `https://api.telegram.org/bot${token}/sendMessage`;
-
-  //     const messageText = `<b>Заявка з сайту</b>`;
-
-  //     axios.post(URI_API, {
-  //       chat_id: CHAT_ID,
-  //       parse_mode: "html",
-  //       text: messageText,
-  //     });
-  //   },
-  // },
   methods: {
     onSubmit() {
-      // URL для відправки повідомлення в Телеграм
-      const telegramAPI =
-        "https://api.telegram.org/bot7098972697:AAEVGCTgXpqmBXFkIBZS64JEw1e776WsW5o/sendMessage";
+      if (this.name !== "" && this.phone !== "") {
+        this.disabledButton = !this.disabledButton;
 
-      // Текст повідомлення, який ви хочете відправити
-      const messageText = `Ім'я: ${this.name}\nНомер телефону: ${this.phone}`;
+        const telegramAPI =
+          "https://api.telegram.org/bot7098972697:AAEVGCTgXpqmBXFkIBZS64JEw1e776WsW5o/sendMessage";
 
-      // Об'єкт з даними, які будуть відправлені через POST запит
-      const data = {
-        chat_id: "-1002133912380", // ID вашого чату у Телеграм
-        text: messageText,
-      };
+        const messageText = `Ім'я: ${this.name}\nНомер телефону: ${this.phone}`;
 
-      // Виконуємо POST запит до API Телеграм з використанням Axios
-      axios
-        .post(telegramAPI, data)
-        .then((response) => {
-          console.log("Повідомлення відправлено успішно:", response.data);
-          // Додайте тут будь-які додаткові дії після успішного відправлення повідомлення
-        })
-        .catch((error) => {
-          console.error("Помилка під час відправки повідомлення:", error);
-          // Додайте тут обробку помилок, якщо потрібно
-        });
+        const data = {
+          chat_id: "-1002133912380",
+          text: messageText,
+        };
+
+        axios
+          .post(telegramAPI, data)
+          .then((response) => {
+            console.log("Повідомлення відправлено успішно:", response.data);
+          })
+          .catch((error) => {
+            console.error("Помилка під час відправки повідомлення:", error);
+          });
+
+        this.$store.commit("modal/setOpenModal");
+        this.disabledButton = !this.disabledButton;
+      } else {
+        console.log("Поля пусті");
+      }
     },
   },
 };
@@ -93,9 +95,8 @@ export default {
   position: fixed;
   padding: 20px;
   width: 500px;
-  height: 450px;
+  // height: 450px;
   top: 100px;
-
   left: calc(50% - 250px);
   border-radius: 8px;
   z-index: 1;
@@ -143,7 +144,7 @@ export default {
       input {
         height: 20px;
         border-radius: 8px;
-        padding: 12px;
+        padding: 20px 12px;
         margin: 8px 0;
       }
     }
