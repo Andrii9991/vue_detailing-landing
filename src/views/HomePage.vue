@@ -10,6 +10,7 @@
     <TheHeader class="test" />
     <TheAboutUs class="test" />
     <TheServices />
+    <TheContactsPage />
     <TheFooter />
     <informationPopUp :isPopUpVisible="popUpVisible" />
   </div>
@@ -23,6 +24,7 @@ import BaseModal from "@/components/BaseModal.vue";
 import informationPopUp from "../components/informationPopUp.vue";
 import { mapState } from "vuex";
 import TheServices from "@/components/TheServices.vue";
+import TheContactsPage from "@/components/TheContactsPage.vue";
 export default {
   name: "HomePage",
   components: {
@@ -31,6 +33,7 @@ export default {
     BaseModal,
     TheFooter,
     TheServices,
+    TheContactsPage,
     informationPopUp,
   },
   data() {

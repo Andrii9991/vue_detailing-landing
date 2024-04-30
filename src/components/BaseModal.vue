@@ -94,14 +94,20 @@ export default {
 .base-modal {
   position: fixed;
   padding: 20px;
+  margin: 8px;
   width: 500px;
   // height: 450px;
   top: 100px;
   left: calc(50% - 250px);
   border-radius: 8px;
-  z-index: 1;
+  z-index: 102;
   background-color: black;
   color: white;
+
+  @media (max-width: 520px) {
+    width: 350px;
+    left: calc(50% - 175px);
+  }
 
   &__container {
     display: flex;

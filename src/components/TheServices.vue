@@ -8,12 +8,15 @@
           :key="service.title"
           class="service-item"
         >
-          <i class="pi pi-wrench" style="font-size: 2rem"> </i>
           <h2 class="item-title">{{ service.title }}</h2>
-          <img :src="service.images" alt="" />
-          <p class="item-text">
-            <strong>{{ service.description }}</strong>
-          </p>
+          <div class="wrapper-image">
+            <img class="image" :src="service.images" alt="" />
+          </div>
+          <BaseButton
+            @click.native="test"
+            class="button"
+            label="Замовити послугу"
+          ></BaseButton>
         </div>
       </div>
     </div>
@@ -22,12 +25,24 @@
 
 <script>
 import axios from "axios";
+import BaseButton from "./BaseButton.vue";
+import { mapState } from "vuex";
+
 export default {
   name: "TheServices",
+  components: {
+    BaseButton,
+  },
   data() {
     return {
       services: [],
     };
+  },
+
+  computed: {
+    ...mapState({
+      disabledButton: (state) => state.modal.isOpened,
+    }),
   },
 
   methods: {
@@ -37,6 +52,11 @@ export default {
       );
       this.services = response.data;
     },
+  },
+
+  test() {
+    // this.$store.commit("modal/setOpenModal");
+    console.log("ss");
   },
 
   async mounted() {
@@ -62,25 +82,74 @@ export default {
 
     &__cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      @media (max-width: 1200px) {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      }
+      @media (max-width: 797px) {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 50%));
+        justify-content: center;
+      }
 
       .service-item {
         text-align: center;
-        padding: 20px 40px;
+        // padding: 20px 40px;
+        position: relative;
         margin: 16px;
         border-radius: 8px;
         box-shadow: 0 0 0 1px black inset;
         transition: 0.5s;
-        height: 350px;
+        height: 250px;
         overflow: hidden;
-        text-overflow: ellipsis;
-        overflow-y: auto;
+
         .pi {
           margin: 8px 0;
         }
 
         .item-title {
+          position: absolute;
+          width: 100%;
+          top: 20%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 1;
+          color: white;
+
           margin: 16px 0;
+        }
+
+        .button {
+          position: absolute;
+          // display: none;
+          z-index: 2;
+          width: 70%;
+          transform: translate(-50%, -50%);
+          bottom: 10%;
+          left: 50%;
+          transition: 0.5s;
+        }
+
+        // &:hover {
+        //   .button {
+        //     display: block; // Показуємо кнопку при наведенні на .service-item
+        //   }
+        // }
+
+        .wrapper-image {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .image {
+            width: 100vh;
+            height: 300px;
+            filter: brightness(30%);
+            transition: 0.5s;
+
+            &:hover {
+              filter: brightness(50%);
+            }
+          }
         }
 
         .item-text {
@@ -98,22 +167,22 @@ export default {
     }
   }
 }
-.service-item::-webkit-scrollbar {
-  width: 8px; /* Ширина прокрутки */
-  height: 90px;
-  border-radius: 8px;
-}
+// .service-item::-webkit-scrollbar {
+//   width: 8px; /* Ширина прокрутки */
+//   height: 90px;
+//   border-radius: 8px;
+// }
 
-.service-item::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Колір фону треку */
-}
+// .service-item::-webkit-scrollbar-track {
+//   background: #f1f1f1; /* Колір фону треку */
+// }
 
-.service-item::-webkit-scrollbar-thumb {
-  background: #888; /* Колір смуги прокрутки */
-  border-radius: 8px; /* Радіус кутів смуги прокрутки */
-}
+// .service-item::-webkit-scrollbar-thumb {
+//   background: #888; /* Колір смуги прокрутки */
+//   border-radius: 8px; /* Радіус кутів смуги прокрутки */
+// }
 
-.service-item::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Колір смуги прокрутки при наведенні миші */
-}
+// .service-item::-webkit-scrollbar-thumb:hover {
+//   background: #555; /* Колір смуги прокрутки при наведенні миші */
+// }
 </style>

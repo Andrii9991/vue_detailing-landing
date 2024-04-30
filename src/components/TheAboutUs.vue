@@ -36,9 +36,6 @@ import { mapState } from "vuex";
 export default {
   components: { BaseButton },
   name: "TheAboutUs",
-  comments: {
-    BaseButton,
-  },
 
   computed: {
     ...mapState({
@@ -58,13 +55,20 @@ export default {
 .about-us {
   display: flex;
   justify-content: center;
-  min-width: 100vh;
+  width: 100%;
   height: 100vh;
-  background: url(../assets/main.jpg);
+  background: url(../assets/main.svg) no-repeat center;
+  background-color: rgba(0, 0, 0, 0.607);
+  background-blend-mode: overlay;
+  // background-attachment: fixed;
+  @media (max-width: 768px) {
+    height: 100%;
+  }
 
   &__container {
     display: flex;
-    min-width: 1240px;
+    width: 1240px;
+    padding: 16px 24px;
 
     .content {
       display: flex;
