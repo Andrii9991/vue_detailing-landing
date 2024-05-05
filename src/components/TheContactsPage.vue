@@ -149,7 +149,6 @@ export default {
   display: flex;
   justify-content: center;
   color: white;
-  margin-top: 100px;
   width: 100%;
   height: 100vh;
   padding: 16px;
