@@ -54,14 +54,8 @@ export default {
     },
   },
 
-  test() {
-    // this.$store.commit("modal/setOpenModal");
-    console.log("ss");
-  },
-
   async mounted() {
     await this.getAllServices();
-    console.log(this.services);
   },
 };
 </script>
