@@ -13,7 +13,6 @@
     <TheReviews />
     <TheContactsPage />
     <TheFooter />
-    <informationPopUp :isPopUpVisible="popUpVisible" />
   </div>
 </template>
 
@@ -22,7 +21,7 @@ import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
 import TheAboutUs from "@/components/TheAboutUs.vue";
 import BaseModal from "@/components/BaseModal.vue";
-import informationPopUp from "../components/informationPopUp.vue";
+// import informationPopUp from "../components/informationPopUp.vue";
 import TheServices from "@/components/TheServices.vue";
 import TheReviews from "@/components/TheReviews.vue";
 import TheContactsPage from "@/components/TheContactsPage.vue";
@@ -37,7 +36,7 @@ export default {
     TheServices,
     TheReviews,
     TheContactsPage,
-    informationPopUp,
+    // informationPopUp,
   },
   data() {
     return {

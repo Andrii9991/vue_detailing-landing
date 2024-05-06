@@ -12,11 +12,22 @@
           <div class="wrapper-image">
             <img class="image" :src="service.images" alt="" />
           </div>
-          <BaseButton
-            @click.native="test"
-            class="button"
-            label="Замовити послугу"
-          ></BaseButton>
+          <div class="actions">
+            <BaseButton
+              @click.native="test"
+              class="accept-button button"
+              label="Замовити послугу"
+            ></BaseButton>
+            <BaseButton
+              @click.native="test"
+              class="description-button button"
+              label="Детальніше"
+            ></BaseButton>
+          </div>
+
+          <div class="service-description">
+            <span>{{ service.description }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -88,7 +99,6 @@ export default {
 
       .service-item {
         text-align: center;
-        // padding: 20px 40px;
         position: relative;
         margin: 16px;
         border-radius: 8px;
@@ -96,10 +106,6 @@ export default {
         transition: 0.5s;
         height: 250px;
         overflow: hidden;
-
-        .pi {
-          margin: 8px 0;
-        }
 
         .item-title {
           position: absolute;
@@ -109,26 +115,22 @@ export default {
           transform: translate(-50%, -50%);
           z-index: 1;
           color: white;
-
           margin: 16px 0;
         }
 
-        .button {
-          position: absolute;
-          // display: none;
-          z-index: 2;
-          width: 70%;
-          transform: translate(-50%, -50%);
-          bottom: 10%;
-          left: 50%;
-          transition: 0.5s;
+        .actions {
+          display: flex;
+          justify-content: space-around;
+          .button {
+            position: absolute;
+            z-index: 2;
+            // width: 70%;
+            transform: translate(-50%, -50%);
+            // bottom: 10%;
+            // left: 50%;
+            transition: 0.5s;
+          }
         }
-
-        // &:hover {
-        //   .button {
-        //     display: block; // Показуємо кнопку при наведенні на .service-item
-        //   }
-        // }
 
         .wrapper-image {
           display: flex;
@@ -161,22 +163,4 @@ export default {
     }
   }
 }
-// .service-item::-webkit-scrollbar {
-//   width: 8px; /* Ширина прокрутки */
-//   height: 90px;
-//   border-radius: 8px;
-// }
-
-// .service-item::-webkit-scrollbar-track {
-//   background: #f1f1f1; /* Колір фону треку */
-// }
-
-// .service-item::-webkit-scrollbar-thumb {
-//   background: #888; /* Колір смуги прокрутки */
-//   border-radius: 8px; /* Радіус кутів смуги прокрутки */
-// }
-
-// .service-item::-webkit-scrollbar-thumb:hover {
-//   background: #555; /* Колір смуги прокрутки при наведенні миші */
-// }
 </style>

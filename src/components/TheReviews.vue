@@ -10,6 +10,8 @@
         :loop="true"
         :minSwipeDistance="1"
         :centerMode="true"
+        :autoplay="true"
+        :autoplayTimeout="8000"
       >
         <slide class="item-content" v-for="image in reviewsImages" :key="image">
           <img class="image-wpapper__item" :src="image" alt="product-image" />
@@ -130,8 +132,8 @@ export default {
         .image-wpapper__item {
           box-shadow: -1px 2px 7px 2px black;
           margin: 8px;
-          width: 250px;
-          height: 350px;
+          width: 255px;
+          height: 380px;
           transition: 0.5s;
 
           @media (max-width: 489px) {
