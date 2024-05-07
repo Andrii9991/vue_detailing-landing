@@ -7,26 +7,30 @@
           v-for="service in services"
           :key="service.title"
           class="service-item"
+          :class="{ active: service.active }"
         >
           <h2 class="item-title">{{ service.title }}</h2>
           <div class="wrapper-image">
-            <img class="image" :src="service.images" alt="" />
+            <img class="image" :src="service.images" :alt="service.title" />
           </div>
           <div class="actions">
             <BaseButton
-              @click.native="test"
-              class="accept-button button"
+              :isDisabled="disabledButton"
+              class="accept-button"
               label="Замовити послугу"
+              size="small"
+              href="#contacts"
             ></BaseButton>
             <BaseButton
-              @click.native="test"
-              class="description-button button"
-              label="Детальніше"
+              @click.native="toggleDescription(service)"
+              class="description-button"
+              :label="service.active ? 'Закрити' : 'Детальніше'"
+              size="small"
             ></BaseButton>
           </div>
 
-          <div class="service-description">
-            <span>{{ service.description }}</span>
+          <div class="service-description" :class="{ active: service.active }">
+            <strong>{{ service.description }}</strong>
           </div>
         </div>
       </div>
@@ -61,7 +65,24 @@ export default {
       const response = await axios.get(
         `https://vue-de-stup-default-rtdb.europe-west1.firebasedatabase.app/services.json`
       );
-      this.services = response.data;
+      this.services = response.data.map((service) => ({
+        ...service,
+        active: false,
+      }));
+    },
+
+    toggleDescription(selectedService) {
+      this.services.forEach((service) => {
+        if (service === selectedService) {
+          service.active = !service.active;
+        } else {
+          service.active = false;
+        }
+      });
+    },
+
+    onOpenModal() {
+      this.$store.commit("modal/setOpenModal");
     },
   },
 
@@ -92,8 +113,12 @@ export default {
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       }
       @media (max-width: 797px) {
-        display: grid;
         grid-template-columns: repeat(auto-fill, minmax(400px, 50%));
+        justify-content: center;
+      }
+
+      @media (max-width: 400px) {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 50%));
         justify-content: center;
       }
 
@@ -102,15 +127,19 @@ export default {
         position: relative;
         margin: 16px;
         border-radius: 8px;
-        box-shadow: 0 0 0 1px black inset;
+        box-shadow: 0 0 0 2px black inset;
         transition: 0.5s;
         height: 250px;
         overflow: hidden;
 
+        &.active {
+          background-color: $black;
+        }
+
         .item-title {
           position: absolute;
           width: 100%;
-          top: 20%;
+          top: 10%;
           left: 50%;
           transform: translate(-50%, -50%);
           z-index: 1;
@@ -119,16 +148,35 @@ export default {
         }
 
         .actions {
+          position: absolute;
+          display: flex;
+          width: 100%;
+          justify-content: space-around;
+          bottom: 10px;
           display: flex;
           justify-content: space-around;
-          .button {
-            position: absolute;
-            z-index: 2;
-            // width: 70%;
-            transform: translate(-50%, -50%);
-            // bottom: 10%;
-            // left: 50%;
-            transition: 0.5s;
+
+          @media (max-width: 992px) {
+            flex-direction: column;
+          }
+          .description-button {
+            z-index: 2000000;
+          }
+        }
+
+        .service-description {
+          text-align: left;
+          padding: 16px 20px;
+          position: absolute;
+          bottom: -100%;
+          z-index: 10000;
+          transition: 0.2s;
+          background-color: $grey;
+          color: white;
+          transition: all 0.5s;
+
+          &.active {
+            top: 0;
           }
         }
 
@@ -136,6 +184,7 @@ export default {
           display: flex;
           justify-content: center;
           align-items: center;
+
           .image {
             width: 100vh;
             height: 300px;
@@ -144,6 +193,7 @@ export default {
 
             &:hover {
               filter: brightness(50%);
+              transform: scale(1.05);
             }
           }
         }
@@ -156,7 +206,7 @@ export default {
 
         &:hover {
           cursor: pointer;
-          transform: translateY(-10px);
+          // transform: translateY(-10px);
           box-shadow: 0 0 0 1px orange inset;
         }
       }

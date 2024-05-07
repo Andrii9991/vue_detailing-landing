@@ -60,8 +60,6 @@ export default {
   methods: {
     onSubmit() {
       if (this.name !== "" && this.phone !== "") {
-        this.disabledButton = !this.disabledButton;
-
         const telegramAPI =
           "https://api.telegram.org/bot7098972697:AAEVGCTgXpqmBXFkIBZS64JEw1e776WsW5o/sendMessage";
 
@@ -82,9 +80,14 @@ export default {
           });
 
         this.$store.commit("modal/setOpenModal");
-        this.disabledButton = !this.disabledButton;
       } else {
         console.log("Поля пусті");
+      }
+
+      if (this.disabledButton) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
       }
     },
   },
@@ -96,17 +99,15 @@ export default {
   padding: 20px;
   margin: 8px;
   width: 500px;
-  // height: 450px;
   top: 100px;
   left: calc(50% - 250px);
   border-radius: 8px;
-  z-index: 102;
   background-color: black;
   color: white;
 
   @media (max-width: 520px) {
     width: 350px;
-    left: calc(50% - 175px);
+    left: calc(50% - 185px);
   }
 
   &__container {

@@ -4,6 +4,7 @@
       <h2><a href="" class="header__logo">Лого</a></h2>
       <div class="header__menu menu">
         <div
+          v-if="!disabledButton"
           @click="isOpenMenu"
           class="menu__icon"
           :class="{ active: isOpenBurgerMenu }"

@@ -1,5 +1,17 @@
 <template>
-  <button :class="['base-button', styleButton, size]" :disabled="isDisabled">
+  <a
+    v-if="href"
+    :href="href"
+    :class="['base-button', styleButton, size]"
+    :disabled="isDisabled"
+  >
+    {{ label }}
+  </a>
+  <button
+    v-else
+    :class="['base-button', styleButton, size]"
+    :disabled="isDisabled"
+  >
     {{ label }}
   </button>
 </template>
@@ -12,6 +24,9 @@ export default {
       required: false,
       default: "Кнопка",
     },
+    href: {
+      default: "",
+    },
     isDisabled: {
       require: false,
       type: Boolean,
@@ -19,7 +34,6 @@ export default {
     styleButton: {
       default: "",
     },
-
     size: {
       default: "",
     },
@@ -35,6 +49,7 @@ export default {
   margin: 8px;
   box-shadow: 0 0 0 1px $white inset;
   border-radius: 8px;
+  transition: 0.5s;
 
   &:hover {
     background-color: $orange;
@@ -57,6 +72,14 @@ export default {
   line-height: 20px;
   font-weight: 600;
   padding: 16px;
+}
+
+.small {
+  font-size: 14px;
+  line-height: 16px;
+  padding: 6px 12px;
+  margin: 6px;
+  border-radius: 6px;
 }
 
 .margin {
