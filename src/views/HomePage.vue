@@ -6,10 +6,16 @@
       class="pi pi-times"
       style="font-size: 2rem"
     ></i>
+
+    <a href="#header">
+      <i class="pi pi-angle-up" style="font-size: 3rem"></i>
+    </a>
+
     <BaseModal v-if="isOpenModal" class="base-modal" />
     <TheHeader />
     <TheAboutUs />
     <TheServices />
+    <ThePortfolio />
     <TheReviews />
     <TheContactsPage />
     <TheFooter />
@@ -21,8 +27,8 @@ import TheHeader from "@/components/TheHeader.vue";
 import TheFooter from "@/components/TheFooter.vue";
 import TheAboutUs from "@/components/TheAboutUs.vue";
 import BaseModal from "@/components/BaseModal.vue";
-// import informationPopUp from "../components/informationPopUp.vue";
 import TheServices from "@/components/TheServices.vue";
+import ThePortfolio from "@/components/ThePortfolio.vue";
 import TheReviews from "@/components/TheReviews.vue";
 import TheContactsPage from "@/components/TheContactsPage.vue";
 import { mapState } from "vuex";
@@ -34,9 +40,9 @@ export default {
     BaseModal,
     TheFooter,
     TheServices,
+    ThePortfolio,
     TheReviews,
     TheContactsPage,
-    // informationPopUp,
   },
   data() {
     return {
@@ -66,7 +72,8 @@ export default {
 <style lang="scss" scoped>
 .home-page {
   overflow: hidden;
-  .pi {
+
+  .pi-times {
     position: fixed;
     z-index: 100;
     color: white;
@@ -76,6 +83,24 @@ export default {
 
     &:hover {
       cursor: pointer;
+    }
+  }
+
+  .pi-angle-up {
+    position: fixed;
+    z-index: 100;
+    color: white;
+    background-color: $grey-lite;
+    border-radius: 50%;
+    bottom: 40px;
+    right: 30px;
+    z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000;
+    overflow: hidden;
+    transition: 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
     }
   }
 }

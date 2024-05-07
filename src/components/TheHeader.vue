@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" id="header">
     <div class="header__container">
       <h2><a href="" class="header__logo">Лого</a></h2>
       <div class="header__menu menu">
@@ -245,7 +245,7 @@ export default {
 
 .number {
   padding: 8px 16px;
-  border-radius: 16px;
+  border-radius: 12px;
   margin-left: 40px;
   text-decoration: none;
   box-shadow: 0 0 0 1px white inset;

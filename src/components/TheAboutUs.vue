@@ -15,14 +15,20 @@
         </h3>
         <div class="content__actions">
           <BaseButton
+            class="coll"
             @click.native="isOpenModal"
+            :isDisabled="disabledButton"
+            href="#header"
             size="big"
             styleButton="orange"
-            class="coll"
             label="Консультація"
-            :isDisabled="disabledButton"
           />
-          <BaseButton size="big" class="portfolio" label="Приклади робіт" />
+          <BaseButton
+            class="portfolio"
+            href="#portfolio"
+            size="big"
+            label="Приклади робіт"
+          />
         </div>
       </div>
     </div>

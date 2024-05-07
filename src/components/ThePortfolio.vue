@@ -1,19 +1,21 @@
 <template>
-  <div class="base-reviews">
-    <div class="reviews-carousel">
-      <h1 class="reviews-title">Відгуки про нас</h1>
+  <div class="base-portfolio" id="portfolio">
+    <div class="portfolio-carousel">
+      <h1 class="portfolio-title">Приклади наших робіт</h1>
       <carousel
-        class="reviews-carousel__wrapper"
+        class="portfolio-carousel__wrapper"
         v-model="currentSlide"
-        :perPage="widthWindow"
-        :paginationEnabled="false"
+        :perPage="1"
         :loop="true"
         :minSwipeDistance="1"
         :centerMode="true"
-        :autoplay="true"
         :autoplayTimeout="8000"
       >
-        <slide class="item-content" v-for="image in reviewsImages" :key="image">
+        <slide
+          class="item-content"
+          v-for="image in portfolioImages"
+          :key="image"
+        >
           <img class="image-wpapper__item" :src="image" alt="product-image" />
         </slide>
       </carousel>
@@ -25,7 +27,7 @@
 import { Carousel, Slide } from "vue-carousel";
 import axios from "axios";
 export default {
-  name: "TheReviews",
+  name: "ThePortfolio",
   components: {
     Carousel,
     Slide,
@@ -33,71 +35,63 @@ export default {
 
   data() {
     return {
-      reviewsImages: [],
-      currentSlide: 1,
-      widthWindow: 3,
+      portfolioImages: [],
+      currentSlide: 4,
     };
   },
 
   methods: {
-    async getAllReviews() {
+    async getAllPortfolioPhotos() {
       const response = await axios.get(
-        `https://vue-de-stup-default-rtdb.europe-west1.firebasedatabase.app/reviews.json`
+        `https://vue-de-stup-default-rtdb.europe-west1.firebasedatabase.app/portfolio.json`
       );
-      let reviews = [];
-      reviews = response.data;
+      let portfolioPhotos = [];
+      portfolioPhotos = response.data;
 
-      const images = reviews.map((item) => item.image);
+      const images = portfolioPhotos.map((item) => item.image);
 
-      this.reviewsImages = [...images];
-    },
-
-    onResize() {
-      let innerWidth = document.documentElement.clientWidth;
-      if (innerWidth <= 1200 && innerWidth > 767) {
-        this.widthWindow = 2;
-      } else if (innerWidth <= 767) {
-        this.widthWindow = 1;
-      }
+      this.portfolioImages = [...images];
     },
   },
 
   async mounted() {
-    await this.getAllReviews();
-    this.onResize();
+    await this.getAllPortfolioPhotos();
   },
 };
 </script>
 
 <style scoped lang="scss">
-.base-reviews {
+.base-portfolio {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgb(26, 26, 26);
   padding: 36px 24px;
+  margin-bottom: 2px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   @media (max-width: 489px) {
     padding: 24px 16px;
   }
 
-  .reviews-carousel {
+  .portfolio-carousel {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     margin-top: 16px;
     text-align: center;
+    max-width: 1200px;
 
-    .reviews-title {
+    .portfolio-title {
       color: white;
+      padding-top: 20px;
 
       @media (max-width: 767px) {
         font-size: 32px;
       }
       @media (max-width: 489px) {
-        font-size: 24spx;
+        font-size: 24px;
       }
     }
 
@@ -105,17 +99,6 @@ export default {
       min-height: 300px;
       border-radius: 24px;
       margin: 16px;
-      @media (max-width: 1200px) {
-        max-width: 700px;
-      }
-
-      @media (max-width: 767px) {
-        max-width: 400px;
-      }
-
-      @media (max-width: 489px) {
-        max-width: 300px;
-      }
 
       &:hover {
         cursor: pointer;
@@ -123,20 +106,28 @@ export default {
       .item-content {
         padding: 10px 0;
         border-radius: 16px;
-        @media (max-width: 489px) {
-          max-width: 300px;
-        }
+        width: auto;
 
         .image-wpapper__item {
           box-shadow: -1px 2px 7px 2px black;
           margin: 8px;
-          width: 245px;
-          height: 380px;
+          width: auto;
+          max-height: 550px;
           transition: 0.5s;
 
+          @media (max-width: 992px) {
+            width: auto;
+            height: 440px;
+          }
+
+          @media (max-width: 767px) {
+            width: auto;
+            height: 250px;
+          }
+
           @media (max-width: 489px) {
-            width: 190px;
-            height: 280px;
+            width: auto;
+            height: 200px;
           }
 
           &:hover {

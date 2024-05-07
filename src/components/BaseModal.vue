@@ -99,11 +99,13 @@ export default {
   padding: 20px;
   margin: 8px;
   width: 500px;
-  top: 100px;
+  top: 70px;
+  bottom: 50px;
   left: calc(50% - 250px);
   border-radius: 8px;
   background-color: black;
   color: white;
+  z-index: 100000000000000000000000000;
 
   @media (max-width: 520px) {
     width: 350px;
