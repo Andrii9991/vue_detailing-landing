@@ -48,6 +48,7 @@ export default {
   padding: 8px 16px;
   margin: 8px;
   box-shadow: 0 0 0 1px $white inset;
+  text-align: center;
   border-radius: 8px;
   transition: 0.5s;
 

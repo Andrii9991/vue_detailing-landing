@@ -14,8 +14,9 @@
                 ></i>
                 <a
                   class="contacts-link"
-                  href="https://www.google.com/maps/place/%D0%9F%D1%96%D0%B4%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BD%D0%B5,+%D0%A2%D0%B5%D1%80%D0%BD%D0%BE%D0%BF%D1%96%D0%BB%D1%8C%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+46003/@49.5263304,25.5241389,13z/data=!4m6!3m5!1s0x47303703b8031499:0xee0e92336b8ffcce!8m2!3d49.5355598!4d25.5276081!16s%2Fg%2F121y51s6?entry=ttu"
-                  >м.Тернопіль, смт. Підгороднє</a
+                  href="https://www.google.com.ua/maps/place/%D0%94%D0%B5%D1%82%D0%B5%D0%B9%D0%BB%D1%96%D0%BD%D0%B3+%D1%81%D1%82%D1%83%D0%B4%D1%96%D1%8F+%C2%ABDestup%C2%BB/@49.5369738,25.5192715,17z/data=!3m1!4b1!4m6!3m5!1s0x473037c4aa60da59:0xe17025d4708c2ee4!8m2!3d49.5369703!4d25.5218464!16s%2Fg%2F11vs977h3w?hl=ru&entry=ttu"
+                  ><strong>м.Тернопіль, Підгороднє,</strong>
+                  <p>вул. Тараса Шевченка</p></a
                 >
               </li>
               <li class="contacts-item">
@@ -43,10 +44,10 @@
         </div>
         <div class="com" data-aos="fade-up">
           <ul>
-            <li><a href="#">Про нас</a></li>
-            <li><a href="#">Наші послуги</a></li>
-            <li><a href="#">Портфоліо</a></li>
-            <li><a href="#">Контакти</a></li>
+            <li><a href="#about-us">Про нас</a></li>
+            <li><a href="#services">Наші послуги</a></li>
+            <li><a href="#portfolio">Портфоліо</a></li>
+            <li><a href="#contacts">Контакти</a></li>
           </ul>
         </div>
         <div class="info" data-aos="fade-up">
@@ -59,12 +60,19 @@
                   style="font-size: 2rem; color: white"
                 ></i
               ></a>
+              <a href="https://t.me/stup44">
+                <i
+                  class="pi pi-telegram"
+                  style="font-size: 2rem; color: white"
+                ></i>
+              </a>
 
-              <i
-                class="pi pi-telegram"
-                style="font-size: 2rem; color: white"
-              ></i>
-              <i class="pi pi-tiktok" style="color: white; font-size: 2rem"></i>
+              <a href="https://www.tiktok.com/@de_stup?_t=8lvesgA2XB7">
+                <i
+                  class="pi pi-tiktok"
+                  style="color: white; font-size: 2rem"
+                ></i>
+              </a>
             </div>
           </div>
         </div>
@@ -124,9 +132,9 @@ footer a {
 }
 
 .logoinfo p {
-  color: #6eb981;
   font-size: 17px;
   margin-top: 5px;
+  padding-left: 22px;
 }
 
 .contact-details {
