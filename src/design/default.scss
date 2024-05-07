@@ -19,5 +19,7 @@ input {
 }
 
 a {
-  color: white;
+  border: none;
+  @extend p;
+  color: $white;
 }

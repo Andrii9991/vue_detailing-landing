@@ -37,6 +37,10 @@ export default {
   components: { BaseButton },
   name: "TheAboutUs",
 
+  data() {
+    return {};
+  },
+
   computed: {
     ...mapState({
       disabledButton: (state) => state.modal.isOpened,
@@ -46,6 +50,11 @@ export default {
   methods: {
     isOpenModal() {
       this.$store.commit("modal/setOpenModal");
+      if (this.disabledButton) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
     },
   },
 };
@@ -60,7 +69,7 @@ export default {
   background: url(../assets/main.svg) no-repeat center;
   background-color: rgba(0, 0, 0, 0.607);
   background-blend-mode: overlay;
-  // background-attachment: fixed;
+
   @media (max-width: 768px) {
     height: 100%;
   }
@@ -81,6 +90,23 @@ export default {
       &__title {
         backdrop-filter: black;
         margin-bottom: 24px;
+
+        @media (max-width: 767px) {
+          font-size: 36px;
+        }
+        @media (max-width: 400px) {
+          font-size: 32px;
+        }
+      }
+
+      &__subtitle {
+        @media (max-width: 767px) {
+          font-size: 20px;
+        }
+
+        @media (max-width: 400px) {
+          font-size: 16px;
+        }
       }
 
       &__actions {

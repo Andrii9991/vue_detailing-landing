@@ -53,6 +53,11 @@ export default {
   methods: {
     closeModal() {
       this.$store.commit("modal/setOpenModal");
+      if (this.disabledButton) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
     },
   },
 };

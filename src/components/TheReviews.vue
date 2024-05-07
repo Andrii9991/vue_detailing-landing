@@ -65,8 +65,6 @@ export default {
   async mounted() {
     await this.getAllReviews();
     this.onResize();
-
-    console.log(document.documentElement.clientWidth);
   },
 };
 </script>
@@ -132,7 +130,7 @@ export default {
         .image-wpapper__item {
           box-shadow: -1px 2px 7px 2px black;
           margin: 8px;
-          width: 255px;
+          width: 245px;
           height: 380px;
           transition: 0.5s;
 
