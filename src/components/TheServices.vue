@@ -16,7 +16,7 @@
           <div class="actions">
             <BaseButton
               :isDisabled="disabledButton"
-              class="accept-button"
+              class="accept-button button"
               label="Замовити послугу"
               size="small"
               href="#contacts"
@@ -24,7 +24,7 @@
             ></BaseButton>
             <BaseButton
               @click.native="toggleDescription(service)"
-              class="description-button"
+              class="description-button button"
               :label="service.active ? 'Закрити' : 'Детальніше'"
               styleButton="blue"
               size="small"
@@ -160,6 +160,10 @@ export default {
           @media (max-width: 992px) {
             flex-direction: column;
           }
+
+          .button {
+            border-radius: 16px;
+          }
           .description-button {
             z-index: 8;
           }
@@ -207,8 +211,6 @@ export default {
 
         &:hover {
           cursor: pointer;
-          // transform: translateY(-10px);
-          box-shadow: 0 0 0 1px orange inset;
         }
       }
     }
