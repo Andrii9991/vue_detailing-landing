@@ -1,7 +1,7 @@
 <template>
   <div class="services-wrapper" id="services">
     <div class="services">
-      <h1 class="services__title">Наші послуги</h1>
+      <h1 class="services__title">НАШІ ПОСЛУГИ</h1>
       <div class="services__cards">
         <div
           v-for="service in services"
@@ -20,11 +20,13 @@
               label="Замовити послугу"
               size="small"
               href="#contacts"
+              styleButton="white"
             ></BaseButton>
             <BaseButton
               @click.native="toggleDescription(service)"
               class="description-button"
               :label="service.active ? 'Закрити' : 'Детальніше'"
+              styleButton="blue"
               size="small"
             ></BaseButton>
           </div>
@@ -126,7 +128,6 @@ export default {
         text-align: center;
         position: relative;
         margin: 16px;
-        border-radius: 8px;
         box-shadow: 0 0 0 2px black inset;
         transition: 0.5s;
         height: 250px;
@@ -160,7 +161,7 @@ export default {
             flex-direction: column;
           }
           .description-button {
-            z-index: 2000000;
+            z-index: 8;
           }
         }
 
@@ -169,7 +170,7 @@ export default {
           padding: 16px 20px;
           position: absolute;
           bottom: -100%;
-          z-index: 10000;
+          z-index: 7;
           transition: 0.2s;
           background-color: $grey;
           color: white;

@@ -75,7 +75,7 @@
 
           <BaseButton
             class="confirm-button"
-            styleButton="orange"
+            styleButton="blue"
             label="Відправити"
             :isDisabled="disabledButton"
           />

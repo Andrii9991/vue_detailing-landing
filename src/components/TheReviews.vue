@@ -1,7 +1,7 @@
 <template>
   <div class="base-reviews">
     <div class="reviews-carousel">
-      <h1 class="reviews-title">Відгуки про нас</h1>
+      <h1 class="reviews-title">ВІДГУКИ ПРО НАС</h1>
       <carousel
         class="reviews-carousel__wrapper"
         v-model="currentSlide"

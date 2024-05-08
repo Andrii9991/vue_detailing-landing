@@ -1,7 +1,7 @@
 <template>
   <div class="base-portfolio" id="portfolio">
     <div class="portfolio-carousel">
-      <h1 class="portfolio-title">Приклади наших робіт</h1>
+      <h1 class="portfolio-title">ПРИКЛАДИ НАШИХ РОБІТ</h1>
       <carousel
         class="portfolio-carousel__wrapper"
         v-model="currentSlide"
@@ -10,6 +10,9 @@
         :minSwipeDistance="1"
         :centerMode="true"
         :autoplayTimeout="8000"
+        :navigationEnabled="true"
+        paginationActiveColor="#007cb9"
+        paginationPosition="bottom-overlay"
       >
         <slide
           class="item-content"
@@ -36,7 +39,7 @@ export default {
   data() {
     return {
       portfolioImages: [],
-      currentSlide: 4,
+      currentSlide: 0,
     };
   },
 
@@ -96,17 +99,23 @@ export default {
     }
 
     &__wrapper {
-      min-height: 300px;
       border-radius: 24px;
+      width: 940px;
       margin: 16px;
 
       &:hover {
         cursor: pointer;
       }
+
       .item-content {
         padding: 10px 0;
         border-radius: 16px;
+        height: 550px;
         width: auto;
+
+        @media (max-width: 767px) {
+          height: 350px;
+        }
 
         .image-wpapper__item {
           box-shadow: -1px 2px 7px 2px black;

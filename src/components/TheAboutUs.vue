@@ -20,12 +20,13 @@
             :isDisabled="disabledButton"
             href="#header"
             size="big"
-            styleButton="orange"
+            styleButton="white"
             label="Консультація"
           />
           <BaseButton
             class="portfolio"
             href="#portfolio"
+            styleButton="blue"
             size="big"
             label="Приклади робіт"
           />
@@ -71,17 +72,15 @@ export default {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100vh;
-  background: url(../assets/main.svg) no-repeat center;
+  height: 800px;
+  background: url(../assets/test.svg) no-repeat center;
   background-color: rgba(0, 0, 0, 0.607);
   background-blend-mode: overlay;
 
-  @media (max-width: 992px) {
-    height: auto;
-  }
-
   @media (max-width: 768px) {
-    height: 100%;
+    background: url(../assets/main.svg) no-repeat center;
+    background-color: rgba(0, 0, 0, 0.607);
+    background-blend-mode: overlay;
   }
 
   &__container {

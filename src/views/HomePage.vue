@@ -88,13 +88,12 @@ export default {
 
   .pi-angle-up {
     position: fixed;
-    z-index: 100;
     color: white;
     background-color: $grey-lite;
     border-radius: 50%;
     bottom: 40px;
     right: 30px;
-    z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000;
+    z-index: 9;
     overflow: hidden;
     transition: 0.2s;
 

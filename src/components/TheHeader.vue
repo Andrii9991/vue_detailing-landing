@@ -45,9 +45,9 @@
               ></i>
               <a
                 href="https://www.google.com.ua/maps/place/%D0%94%D0%B5%D1%82%D0%B5%D0%B9%D0%BB%D1%96%D0%BD%D0%B3+%D1%81%D1%82%D1%83%D0%B4%D1%96%D1%8F+%C2%ABDestup%C2%BB/@49.5369738,25.5192715,17z/data=!3m1!4b1!4m6!3m5!1s0x473037c4aa60da59:0xe17025d4708c2ee4!8m2!3d49.5369703!4d25.5218464!16s%2Fg%2F11vs977h3w?hl=ru&entry=ttu"
+                ><strong>м.Тернопіль, Підгороднє,</strong>
+                <p>вул. Тараса Шевченка</p></a
               >
-                <strong>м.Тернопіль, смт.Підгороднє</strong>
-              </a>
             </li>
             <li class="mobile-item">
               <i
@@ -66,25 +66,32 @@
             </li>
 
             <div class="mobile-social">
-              <i class="pi pi-telegram" style="color: orange; font-size: 1.5rem"
-                ><a href=""></a
-              ></i>
+              <a href="https://t.me/stup44"
+                ><i
+                  class="pi pi-telegram"
+                  style="color: orange; font-size: 1.5rem"
+                ></i
+              ></a>
+
               <a href="https://www.instagram.com/de_stup?igsh=N21wc3g2cHFid3Jh"
                 ><i
                   class="pi pi-instagram"
                   style="color: orange; font-size: 1.5rem"
                 ></i
               ></a>
-              <i class="pi pi-envelope" style="color: orange; font-size: 1.5rem"
-                ><a href=""></a
-              ></i>
+              <a href="https://www.tiktok.com/@de_stup?_t=8lvesgA2XB7">
+                <i
+                  class="pi pi-tiktok"
+                  style="color: orange; font-size: 1.5rem"
+                ></i
+              ></a>
             </div>
           </ul>
         </nav>
       </div>
-      <a class="menu__link number" href="tel:+380 98 459 70 64"
-        >+380 98 459 70 64</a
-      >
+      <a class="menu__link number" href="tel:+380 98 459 70 64">
+        <strong>+380 98 459 70 64</strong>
+      </a>
     </div>
   </header>
 </template>
@@ -163,7 +170,7 @@ export default {
       width: 30px;
       height: 18px;
       position: relative;
-      z-index: 101;
+      z-index: 10;
       cursor: pointer;
       span {
         position: absolute;
@@ -200,7 +207,7 @@ export default {
   &__body {
     @media (max-width: 768px) {
       position: absolute;
-      z-index: 100;
+      z-index: 9;
       top: 0;
       left: -100%;
       height: 100vh;
@@ -244,10 +251,13 @@ export default {
 
 .number {
   padding: 8px 16px;
-  border-radius: 12px;
+  border-radius: 16px;
   margin-left: 40px;
   text-decoration: none;
-  box-shadow: 0 0 0 1px white inset;
+  background-color: white;
+  text-decoration: none;
+  color: $black;
+  // box-shadow: 0 0 0 1px white inset;
 
   @media (max-width: 768px) {
     display: none;
