@@ -47,13 +47,11 @@ export default {
   background: none;
   padding: 8px 16px;
   margin: 8px;
-  box-shadow: 0 0 0 1px $white inset;
   text-align: center;
   border-radius: 8px;
   transition: 0.5s;
 
   &:hover {
-    background-color: $orange;
     cursor: pointer;
   }
 
@@ -66,6 +64,18 @@ export default {
 
 .orange {
   background-color: $orange;
+}
+
+.white {
+  background-color: $white;
+  color: $black;
+  border-radius: 20px;
+}
+
+.blue {
+  background-color: #204775;
+  color: $white;
+  border-radius: 20px;
 }
 
 .big {

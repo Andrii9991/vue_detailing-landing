@@ -6,11 +6,11 @@
 
       <form class="modal-form" @submit.prevent="onSubmit">
         <fieldset class="input-border">
-          <label for="name">Ваше ім'я</label>
+          <label for="name"> <strong>Ваше ім'я</strong> </label>
           <input type="text" placeholder="Ім'я" v-model="name" />
         </fieldset>
         <fieldset class="input-border">
-          <label for="phone">Номер телефону</label>
+          <label for="phone"> <strong>Номер телефону</strong> </label>
 
           <input
             type="phone"
@@ -25,7 +25,7 @@
           class="accept-button"
           label="Залишити заявку"
           size="big"
-          styleButton="margin"
+          styleButton="blue"
           :isDisabled="disabledButton"
         />
       </form>
@@ -105,7 +105,7 @@ export default {
   border-radius: 8px;
   background-color: black;
   color: white;
-  z-index: 100000000000000000000000000;
+  z-index: 10;
 
   @media (max-width: 520px) {
     width: 350px;
@@ -124,6 +124,8 @@ export default {
 
     .modal-subtitle {
       margin-bottom: 16px;
+      text-align: center;
+      width: 80%;
     }
 
     .close {
@@ -152,7 +154,6 @@ export default {
       }
       input {
         height: 20px;
-        border-radius: 8px;
         padding: 20px 12px;
         margin: 8px 0;
       }
