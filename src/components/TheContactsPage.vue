@@ -30,7 +30,7 @@
           </li>
           <li class="list-item">
             <i class="pi pi-phone" style="font-size: 1.4rem; color: orange"></i>
-            <a href="+380 98 459 70 64">
+            <a href="tel: +380 98 459 70 64">
               <strong>+380 98 459 70 64</strong>
             </a>
           </li>
@@ -154,6 +154,9 @@ export default {
   padding: 16px;
   background: url(../assets/test.jpg) no-repeat center;
   background-color: rgba(26, 26, 26, 1);
+  @media (max-width: 829px) {
+    height: 900px;
+  }
 
   &__container {
     display: flex;

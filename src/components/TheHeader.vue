@@ -1,7 +1,7 @@
 <template>
   <header class="header" id="header">
     <div class="header__container">
-      <h2><a href="" class="header__logo">Лого</a></h2>
+      <img class="header__logo" src="../assets/logo.svg" alt="" />
       <div class="header__menu menu">
         <div
           v-if="!disabledButton"
@@ -44,7 +44,7 @@
                 style="color: orange; font-size: 1rem"
               ></i>
               <a
-                href="https://www.google.com/maps/place/%D0%9F%D1%96%D0%B4%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BD%D0%B5,+%D0%A2%D0%B5%D1%80%D0%BD%D0%BE%D0%BF%D1%96%D0%BB%D1%8C%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+46003/@49.5263304,25.5241389,13z/data=!4m6!3m5!1s0x47303703b8031499:0xee0e92336b8ffcce!8m2!3d49.5355598!4d25.5276081!16s%2Fg%2F121y51s6?entry=ttu"
+                href="https://www.google.com.ua/maps/place/%D0%94%D0%B5%D1%82%D0%B5%D0%B9%D0%BB%D1%96%D0%BD%D0%B3+%D1%81%D1%82%D1%83%D0%B4%D1%96%D1%8F+%C2%ABDestup%C2%BB/@49.5369738,25.5192715,17z/data=!3m1!4b1!4m6!3m5!1s0x473037c4aa60da59:0xe17025d4708c2ee4!8m2!3d49.5369703!4d25.5218464!16s%2Fg%2F11vs977h3w?hl=ru&entry=ttu"
               >
                 <strong>м.Тернопіль, смт.Підгороднє</strong>
               </a>
@@ -60,15 +60,12 @@
             </li>
             <li class="mobile-item">
               <i class="pi pi-phone" style="color: orange; font-size: 1rem"></i>
-              <a href="+380 98 459 70 64">
+              <a href="tel:+380 98 459 70 64">
                 <strong>+380 98 459 70 64</strong>
               </a>
             </li>
 
             <div class="mobile-social">
-              <i class="pi pi-phone" style="color: orange; font-size: 1.5rem"
-                ><a href=""></a
-              ></i>
               <i class="pi pi-telegram" style="color: orange; font-size: 1.5rem"
                 ><a href=""></a
               ></i>
@@ -143,12 +140,14 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 24px;
+    padding: 8px 24px;
 
     .header__logo {
       background-color: black;
       padding: 5px;
       text-decoration: none;
+      height: 55px;
+      width: auto;
     }
   }
 }

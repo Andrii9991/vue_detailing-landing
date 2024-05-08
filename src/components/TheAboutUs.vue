@@ -76,6 +76,10 @@ export default {
   background-color: rgba(0, 0, 0, 0.607);
   background-blend-mode: overlay;
 
+  @media (max-width: 992px) {
+    height: auto;
+  }
+
   @media (max-width: 768px) {
     height: 100%;
   }
