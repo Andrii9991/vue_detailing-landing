@@ -75,8 +75,7 @@ export default {
   background-blend-mode: overlay;
 
   @media (max-width: 768px) {
-    background: url(../assets/main.svg) no-repeat center;
-    background-color: rgba(0, 0, 0, 0.607);
+    background: url(../assets/main.jpg) no-repeat center;
     background-blend-mode: overlay;
   }
 
