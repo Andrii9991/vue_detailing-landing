@@ -61,12 +61,12 @@ export default {
     onSubmit() {
       if (this.name !== "" && this.phone !== "") {
         const telegramAPI =
-          "https://api.telegram.org/bot7098972697:AAEVGCTgXpqmBXFkIBZS64JEw1e776WsW5o/sendMessage";
+          "https://api.telegram.org/bot6818318370:AAHSpjQuef4aJW9EemQxwWoouCPQDws1N10/sendMessage";
 
         const messageText = `Ім'я: ${this.name}\nНомер телефону: ${this.phone}`;
 
         const data = {
-          chat_id: "-1002133912380",
+          chat_id: "-1002102183532",
           text: messageText,
         };
 

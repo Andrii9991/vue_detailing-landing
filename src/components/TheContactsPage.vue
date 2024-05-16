@@ -22,10 +22,7 @@
               style="font-size: 1.4rem; color: orange"
             ></i>
             <strong>
-              <a
-                href="https://www.google.com/maps/place/%D0%9F%D1%96%D0%B4%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%BD%D0%B5,+%D0%A2%D0%B5%D1%80%D0%BD%D0%BE%D0%BF%D1%96%D0%BB%D1%8C%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+46003/@49.5263304,25.5241389,13z/data=!4m6!3m5!1s0x47303703b8031499:0xee0e92336b8ffcce!8m2!3d49.5355598!4d25.5276081!16s%2Fg%2F121y51s6?entry=ttu"
-                >stup@gmail.com</a
-              >
+              <a href="mailto:vladstup6@gmail.com">vladstup6@gmail.com</a>
             </strong>
           </li>
           <li class="list-item">
@@ -114,12 +111,12 @@ export default {
     onSubmit() {
       if (this.name !== "" && this.phone !== "") {
         const telegramAPI =
-          "https://api.telegram.org/bot7098972697:AAEVGCTgXpqmBXFkIBZS64JEw1e776WsW5o/sendMessage";
+          "https://api.telegram.org/bot6818318370:AAHSpjQuef4aJW9EemQxwWoouCPQDws1N10/sendMessage";
 
         const messageText = `Ім'я: ${this.name}\nНомер телефону: ${this.phone}\n Марка авто: ${this.mark}\n Коментар: ${this.comment}`;
 
         const data = {
-          chat_id: "-1002133912380",
+          chat_id: "-1002102183532",
           text: messageText,
         };
 
