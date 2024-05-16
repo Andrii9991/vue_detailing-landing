@@ -54,8 +54,8 @@
                 class="pi pi-envelope"
                 style="color: orange; font-size: 1rem"
               ></i>
-              <a href="stup@gmail.com">
-                <strong>stup@gmail.com</strong>
+              <a href="mailto:vladstup6@gmail.com">
+                <strong>vladstup6@gmail.com</strong>
               </a>
             </li>
             <li class="mobile-item">

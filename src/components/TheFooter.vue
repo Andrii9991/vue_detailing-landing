@@ -35,8 +35,8 @@
                   class="pi pi-envelope"
                   style="color: white; font-size: 1rem"
                 ></i>
-                <a class="contacts-link" href="stup@gmail.com "
-                  >stup@gmail.com</a
+                <a class="contacts-link" href="mailto:vladstup6@gmail.com"
+                  >vladstup6@gmail.com</a
                 >
               </li>
             </ul>
