@@ -110,7 +110,8 @@ export default {
         font-weight: 600;
         font-family: "Titillium Web", sans-serif;
         @media (max-width: 767px) {
-          font-size: 20px;
+          font-size: 26px;
+          line-height: 34px;
         }
 
         @media (max-width: 400px) {
