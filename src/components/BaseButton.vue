@@ -43,6 +43,9 @@ export default {
 
 <style lang="scss" scoped>
 .base-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: $white;
   background: none;
   padding: 8px 16px;
