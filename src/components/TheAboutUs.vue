@@ -70,7 +70,7 @@ export default {
   justify-content: center;
   width: 100%;
   height: 800px;
-  background: url(../assets/test.svg) no-repeat center;
+  background: url(../assets/aboutUs.jpg) no-repeat center;
   background-color: rgba(0, 0, 0, 0.607);
   background-blend-mode: overlay;
 
