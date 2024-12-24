@@ -16,7 +16,6 @@ export default {
             const targetId = this.getAttribute("href");
             const targetElement = document.querySelector(targetId);
 
-            // Перевіряємо, чи елемент з вказаним ідентифікатором існує
             if (targetElement) {
               window.scrollTo({
                 top: targetElement.offsetTop,
