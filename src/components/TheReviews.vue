@@ -13,8 +13,12 @@
         :autoplay="true"
         :autoplayTimeout="8000"
       >
-        <slide class="item-content" v-for="image in reviewsImages" :key="image">
-          <img class="image-wpapper__item" :src="image" alt="product-image" />
+        <slide
+          class="item-content"
+          v-for="item in reviewsImages"
+          :key="item.image"
+        >
+          <img class="image-wpapper__item" :src="item.image" :alt="item.alt" />
         </slide>
       </carousel>
     </div>
@@ -23,7 +27,6 @@
 
 <script>
 import { Carousel, Slide } from "vue-carousel";
-import axios from "axios";
 export default {
   name: "TheReviews",
   components: {
@@ -33,25 +36,34 @@ export default {
 
   data() {
     return {
-      reviewsImages: [],
+      reviewsImages: [
+        {
+          image: require("@/assets/reviews/1.jpg"),
+          alt: "фото з відгуком",
+        },
+        {
+          image: require("@/assets/reviews/2.jpg"),
+          alt: "фото з відгуком",
+        },
+        {
+          image: require("@/assets/reviews/3.jpg"),
+          alt: "фото з відгуком",
+        },
+        {
+          image: require("@/assets/reviews/4.jpg"),
+          alt: "фото з відгуком",
+        },
+        {
+          image: require("@/assets/reviews/5.jpg"),
+          alt: "фото з відгуком",
+        },
+      ],
       currentSlide: 1,
       widthWindow: 3,
     };
   },
 
   methods: {
-    async getAllReviews() {
-      const response = await axios.get(
-        `https://vue-de-stup-default-rtdb.europe-west1.firebasedatabase.app/reviews.json`
-      );
-      let reviews = [];
-      reviews = response.data;
-
-      const images = reviews.map((item) => item.image);
-
-      this.reviewsImages = [...images];
-    },
-
     onResize() {
       let innerWidth = document.documentElement.clientWidth;
       if (innerWidth <= 1200 && innerWidth > 767) {
@@ -63,7 +75,6 @@ export default {
   },
 
   async mounted() {
-    await this.getAllReviews();
     this.onResize();
   },
 };

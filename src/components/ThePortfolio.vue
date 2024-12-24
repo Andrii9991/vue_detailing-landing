@@ -16,10 +16,10 @@
       >
         <slide
           class="item-content"
-          v-for="image in portfolioImages"
-          :key="image"
+          v-for="item in portfolioImages"
+          :key="item.image"
         >
-          <img class="image-wpapper__item" :src="image" alt="product-image" />
+          <img class="image-wpapper__item" :src="item.image" :alt="item.alt" />
         </slide>
       </carousel>
     </div>
@@ -28,7 +28,6 @@
 
 <script>
 import { Carousel, Slide } from "vue-carousel";
-import axios from "axios";
 export default {
   name: "ThePortfolio",
   components: {
@@ -38,27 +37,38 @@ export default {
 
   data() {
     return {
-      portfolioImages: [],
+      portfolioImages: [
+        {
+          image: require("@/assets/portfolio/1.svg"),
+          alt: "фото з портфоліо",
+        },
+        {
+          image: require("@/assets/portfolio/2.svg"),
+          alt: "фото з портфоліо",
+        },
+        {
+          image: require("@/assets/portfolio/3.svg"),
+          alt: "фото з портфоліо",
+        },
+        {
+          image: require("@/assets/portfolio/4.svg"),
+          alt: "фото з портфоліо",
+        },
+        {
+          image: require("@/assets/portfolio/5.svg"),
+          alt: "фото з портфоліо",
+        },
+        {
+          image: require("@/assets/portfolio/6.svg"),
+          alt: "фото з портфоліо",
+        },
+        {
+          image: require("@/assets/portfolio/7.svg"),
+          alt: "фото з портфоліо",
+        },
+      ],
       currentSlide: 0,
     };
-  },
-
-  methods: {
-    async getAllPortfolioPhotos() {
-      const response = await axios.get(
-        `https://vue-de-stup-default-rtdb.europe-west1.firebasedatabase.app/portfolio.json`
-      );
-      let portfolioPhotos = [];
-      portfolioPhotos = response.data;
-
-      const images = portfolioPhotos.map((item) => item.image);
-
-      this.portfolioImages = [...images];
-    },
-  },
-
-  async mounted() {
-    await this.getAllPortfolioPhotos();
   },
 };
 </script>
