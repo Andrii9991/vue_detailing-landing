@@ -7,12 +7,12 @@
       style="font-size: 2rem"
     ></i>
 
-    <a href="#header">
+    <a href="#header" v-if="scrollY >= 500" class="scroll-to-top">
       <i class="pi pi-angle-up" style="font-size: 3rem"></i>
     </a>
 
     <BaseModal v-if="isOpenModal" class="base-modal" />
-    <TheHeader />
+    <TheHeader class="header" />
     <TheAboutUs />
     <TheServices />
     <ThePortfolio />
@@ -47,6 +47,7 @@ export default {
   data() {
     return {
       popUpVisible: true,
+      scrollY: 0,
     };
   },
 
@@ -65,6 +66,13 @@ export default {
         document.body.style.overflow = "auto";
       }
     },
+    handleScroll() {
+      this.scrollY = window.scrollY;
+    },
+  },
+
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
   },
 };
 </script>
@@ -72,6 +80,11 @@ export default {
 <style lang="scss" scoped>
 .home-page {
   overflow: hidden;
+
+  .header {
+    position: fixed;
+    z-index: 9;
+  }
 
   .pi-times {
     position: fixed;

@@ -11,7 +11,7 @@
         >
           <h2 class="item-title">{{ service.title }}</h2>
           <div class="wrapper-image">
-            <img class="image" :src="service.images" :alt="service.title" />
+            <img class="image" :src="service.image" :alt="service.title" />
           </div>
           <div class="actions">
             <BaseButton
@@ -41,7 +41,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import BaseButton from "./BaseButton.vue";
 import { mapState } from "vuex";
 
@@ -51,28 +50,16 @@ export default {
     BaseButton,
   },
   data() {
-    return {
-      services: [],
-    };
+    return {};
   },
-
   computed: {
     ...mapState({
       disabledButton: (state) => state.modal.isOpened,
+      services: (state) => state.services.allServices,
     }),
   },
 
   methods: {
-    async getAllServices() {
-      const response = await axios.get(
-        `https://vue-de-stup-default-rtdb.europe-west1.firebasedatabase.app/services.json`
-      );
-      this.services = response.data.map((service) => ({
-        ...service,
-        active: false,
-      }));
-    },
-
     toggleDescription(selectedService) {
       this.services.forEach((service) => {
         if (service === selectedService) {
@@ -87,9 +74,8 @@ export default {
       this.$store.commit("modal/setOpenModal");
     },
   },
-
-  async mounted() {
-    await this.getAllServices();
+  mounted() {
+    console.log(this.services);
   },
 };
 </script>

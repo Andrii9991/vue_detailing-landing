@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import modal from "./modal";
+import services from "./services";
 
 Vue.use(Vuex);
 
@@ -11,5 +12,6 @@ export default new Vuex.Store({
   actions: {},
   modules: {
     modal,
+    services,
   },
 });
