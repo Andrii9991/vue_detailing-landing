@@ -2,14 +2,12 @@
   <div class="services-wrapper" id="services">
     <div class="services view">
       <h1 class="services__title">НАШІ ПОСЛУГИ</h1>
-      <div class="services__cards">
+      <div class="services__cards" data-aos="fade-up" data-aos-duration="1000">
         <div
           v-for="service in services"
           :key="service.title"
           class="service-item"
           :class="{ active: service.active }"
-          data-aos="fade-up"
-          data-aos-duration="1000"
         >
           <h2 class="item-title">{{ service.title }}</h2>
           <div class="wrapper-image">

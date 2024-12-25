@@ -4,7 +4,9 @@ import router from "./router";
 import store from "./store";
 import "primeicons/primeicons.css";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Імпортуй стилі з встановленого пакета
+import "aos/dist/aos.css";
+
+Vue.config.productionTip = false;
 new Vue({
   router,
   store,
