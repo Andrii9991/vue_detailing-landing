@@ -83,8 +83,16 @@ export default {
   margin-bottom: 2px;
   width: 100%;
   height: 100%;
+  opacity: 0;
+  animation: fadeIn 4s forwards;
   @media (max-width: 489px) {
     padding: 24px 16px;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
   }
 
   .portfolio-carousel {

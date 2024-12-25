@@ -118,9 +118,16 @@ export default {
         transition: 0.5s;
         height: 250px;
         overflow: hidden;
+        opacity: 0;
+        animation: fadeIn 3s forwards;
 
         &.active {
           background-color: $black;
+        }
+        @keyframes fadeIn {
+          to {
+            opacity: 1;
+          }
         }
 
         .item-title {
