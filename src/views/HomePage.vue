@@ -7,7 +7,7 @@
       style="font-size: 2rem"
     ></i>
 
-    <a href="#header" v-if="scrollY >= 500" class="scroll-to-top">
+    <a href="#header" v-show="scrollY > 500">
       <i class="pi pi-angle-up" style="font-size: 3rem"></i>
     </a>
 
@@ -73,6 +73,9 @@ export default {
 
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
 };
 </script>

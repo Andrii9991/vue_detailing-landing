@@ -12,6 +12,8 @@
         :centerMode="true"
         :autoplay="true"
         :autoplayTimeout="8000"
+        data-aos="fade-up"
+        data-aos-duration="1000"
       >
         <slide
           class="item-content"
