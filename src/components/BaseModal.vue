@@ -74,9 +74,19 @@ export default {
           .post(telegramAPI, data)
           .then((response) => {
             console.log("Повідомлення відправлено успішно:", response.data);
+            this.$toast.open({
+              message: "Заявка відправлена успішно, очікуйте дзвінка!",
+              duration: 2000,
+              position: "top-right",
+            });
           })
           .catch((error) => {
             console.error("Помилка під час відправки повідомлення:", error);
+            this.$toast.default({
+              message: "Щось пішло не так!",
+              duration: 2000,
+              position: "top-right",
+            });
           });
 
         this.$store.commit("modal/setOpenModal");
