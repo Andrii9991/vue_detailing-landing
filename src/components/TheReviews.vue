@@ -20,7 +20,12 @@
           v-for="item in reviewsImages"
           :key="item.image"
         >
-          <img class="image-wpapper__item" :src="item.image" :alt="item.alt" />
+          <img
+            class="image-wpapper__item"
+            loading="lazy"
+            :src="item.image"
+            :alt="item.alt"
+          />
         </slide>
       </carousel>
     </div>

@@ -1,11 +1,9 @@
 <template>
   <div class="home-page">
-    <!-- Прелоадер -->
     <div v-if="isLoading" class="preloader">
       <span class="loader"></span>
     </div>
 
-    <!-- Контент сторінки -->
     <div v-else>
       <i
         @click="closeModal"
@@ -55,7 +53,7 @@ export default {
   },
   data() {
     return {
-      isLoading: true, // Прелоадер активний при завантаженні сторінки
+      isLoading: true,
       scrollY: 0,
     };
   },
@@ -80,11 +78,10 @@ export default {
     },
   },
 
-  mounted() {
-    window.addEventListener("scroll", this.handleScroll);
+  async mounted() {
+    await window.addEventListener("scroll", this.handleScroll);
 
-    // Приховуємо прелоадер через 2 секунди
-    setTimeout(() => {
+    await setTimeout(() => {
       this.isLoading = false;
     }, 1500);
   },

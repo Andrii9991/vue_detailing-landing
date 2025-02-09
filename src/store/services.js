@@ -11,7 +11,7 @@ export default {
       },
 
       {
-        image: require("@/assets/services/Мийка-підкапотного-простору.jpg"),
+        image: require("@/assets/servicesvg/Мийка-підкапотного-простору.jpg"),
         title: "Мийка підкапотного простору",
         active: false,
         description:

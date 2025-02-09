@@ -6,10 +6,10 @@
           Найкраще місце детейлінгу Вашого авто в Тернополі
         </h1>
 
-        <h3 class="content__subtitle">
+        <h2 class="content__subtitle">
           Ми надаємо весь спектр послуг детейлінгу як власникам нових
           автомобілів, так і для авто з пробігом.
-        </h3>
+        </h2>
         <div class="content__actions">
           <BaseButton
             class="coll"
@@ -70,12 +70,12 @@ export default {
   justify-content: center;
   width: 100%;
   height: 800px;
-  background: url(../assets/aboutUs.jpg) no-repeat center;
+  background: url(../assets/aboutUs.svg) no-repeat center;
   background-color: rgba(0, 0, 0, 0.607);
   background-blend-mode: overlay;
 
   @media (max-width: 768px) {
-    background: url(../assets/main.jpg) no-repeat center;
+    background: url(../assets/main1.svg) no-repeat center;
     background-blend-mode: overlay;
   }
 
@@ -110,7 +110,7 @@ export default {
         font-weight: 400;
         font-family: "Titillium Web", sans-serif;
         @media (max-width: 767px) {
-          font-size: 26px;
+          font-size: 20px;
           line-height: 34px;
         }
 
