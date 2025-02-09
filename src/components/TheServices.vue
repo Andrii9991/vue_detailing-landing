@@ -172,12 +172,17 @@ export default {
           display: flex;
           justify-content: center;
           align-items: center;
+          object-fit: cover;
 
           .image {
             width: 100vh;
-            height: 300px;
             filter: brightness(30%);
             transition: 0.5s;
+
+            /* @media (max-width: 1240px) {
+              width: 100vh;
+              height: 300px;
+            } */
 
             &:hover {
               filter: brightness(50%);

@@ -56,6 +56,7 @@ export default {
 
   &:hover {
     cursor: pointer;
+    transform: scale(1.05);
   }
 
   &:disabled {

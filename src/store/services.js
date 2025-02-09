@@ -3,7 +3,7 @@ export default {
   state: {
     allServices: [
       {
-        image: require("@/assets/services/Полірування-авто.jpg"),
+        image: require("@/assets/servicesvg/1.svg"),
         title: "Полірування авто",
         active: false,
         description:
@@ -18,7 +18,7 @@ export default {
           " Процес очищення внутрішньої частини капота та двигуна автомобіля від бруду, пилу та інших забруднень. Наша мийка підкапотного простору включає в себе використання спеціалізованих засобів та обладнання для ефективного видалення бруду та жиру з моторного відділення. ",
       },
       {
-        image: require("@/assets/services/Керамічне покриття.jpg"),
+        image: require("@/assets/servicesvg/3.svg"),
         title: "Керамічне покриття",
         active: false,
         description:
@@ -26,28 +26,28 @@ export default {
       },
 
       {
-        image: require("@/assets/services/антидощ.jpg"),
+        image: require("@/assets/servicesvg/4.svg"),
         title: "Антидощ",
         active: false,
         description:
           "Cпеціальне захисне покриття для скла автомобіля, яке відштовхує воду і зменшує утворення крапель та слизької плівки на вікнах під час дощу. Це полегшує очищення скла, покращує видимість та забезпечує безпеку під час водіння в дощову погоду.",
       },
       {
-        image: require("@/assets/services/Детейлінг-мийка.jpg"),
+        image: require("@/assets/servicesvg/5.svg"),
         title: "Детейлінг мийка",
         active: false,
         description:
           "Високоякісна мийка автомобіля, що включає в себе ретельне очищення всіх поверхонь та деталей, включаючи кузов, салон, диски, вікна та оптику. Ми використовуємо спеціальні засоби та техніки для досягнення бездоганного результату, забезпечуючи максимальну чистоту, блиск та охайність вашого авто.",
       },
       {
-        image: require("@/assets/services/відновлення-оптики.jpg"),
+        image: require("@/assets/servicesvg/6.svg"),
         title: "Відновлення оптики",
         active: false,
         description:
           "Процес видалення жовклості та дефектів з фар автомобіля для покращення їх яскравості та безпеки під час водіння.",
       },
       {
-        image: require("@/assets/services/детейлинг-хімчистка.jpg"),
+        image: require("@/assets/servicesvg/7.svg"),
         title: "Детейлинг хімчистка",
         active: false,
         description:
