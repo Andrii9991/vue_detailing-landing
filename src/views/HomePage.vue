@@ -1,24 +1,32 @@
 <template>
   <div class="home-page">
-    <i
-      @click="closeModal"
-      v-if="isOpenModal"
-      class="pi pi-times"
-      style="font-size: 2rem"
-    ></i>
+    <!-- Прелоадер -->
+    <div v-if="isLoading" class="preloader">
+      <span class="loader"></span>
+    </div>
 
-    <a href="#header" v-show="scrollY > 500">
-      <i class="pi pi-angle-up" style="font-size: 3rem"></i>
-    </a>
+    <!-- Контент сторінки -->
+    <div v-else>
+      <i
+        @click="closeModal"
+        v-if="isOpenModal"
+        class="pi pi-times"
+        style="font-size: 2rem"
+      ></i>
 
-    <BaseModal v-if="isOpenModal" class="base-modal" />
-    <TheHeader class="header" />
-    <TheAboutUs />
-    <TheServices />
-    <ThePortfolio />
-    <TheReviews />
-    <TheContactsPage />
-    <TheFooter />
+      <a href="#header" v-show="scrollY > 500">
+        <i class="pi pi-angle-up" style="font-size: 3rem"></i>
+      </a>
+
+      <BaseModal v-if="isOpenModal" class="base-modal" />
+      <TheHeader class="header" />
+      <TheAboutUs />
+      <TheServices />
+      <ThePortfolio />
+      <TheReviews />
+      <TheContactsPage />
+      <TheFooter />
+    </div>
   </div>
 </template>
 
@@ -32,6 +40,7 @@ import ThePortfolio from "@/components/ThePortfolio.vue";
 import TheReviews from "@/components/TheReviews.vue";
 import TheContactsPage from "@/components/TheContactsPage.vue";
 import { mapState } from "vuex";
+
 export default {
   name: "HomePage",
   components: {
@@ -46,7 +55,7 @@ export default {
   },
   data() {
     return {
-      popUpVisible: true,
+      isLoading: true, // Прелоадер активний при завантаженні сторінки
       scrollY: 0,
     };
   },
@@ -73,7 +82,13 @@ export default {
 
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
+
+    // Приховуємо прелоадер через 2 секунди
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1500);
   },
+
   beforeUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
   },
@@ -117,6 +132,35 @@ export default {
       cursor: pointer;
       transform: scale(1.1);
     }
+  }
+}
+
+.preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 </style>
